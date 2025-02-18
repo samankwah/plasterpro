@@ -30,12 +30,13 @@ const Navbar = () => {
 
   // Navbar menu items
   const menuItems = [
-    { name: "Home", link: "#" },
-    { name: "About", link: "#about" },
-    { name: "Features", link: "#features" },
-    { name: "Services", link: "#services" },
-    { name: "Pricing", link: "#pricing" },
-    { name: "Contact", link: "#contact" },
+    { name: "Home", link: "/" },
+    { name: "About", link: "/about-innovator" },
+
+    { name: "Features", link: "/about-us" },
+
+    { name: "Services", link: "/products" },
+    { name: "Contact", link: "/contact" },
   ];
 
   return (

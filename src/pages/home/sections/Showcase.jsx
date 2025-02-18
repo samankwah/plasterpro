@@ -56,7 +56,7 @@ const Showcase = () => {
       </div>
 
       <div
-        className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 transition-all duration-500 ${
+        className={`container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 transition-all duration-500 ${
           animateItems
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-10"
