@@ -9,6 +9,8 @@ import {
   Clock,
   ArrowRight,
 } from "lucide-react";
+import KitUser from "../../../assets/kit-user.webp";
+import About from "../../../assets/about1.jpg";
 
 const AboutProduct = () => {
   // Product features data
@@ -43,10 +45,10 @@ const AboutProduct = () => {
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <p className="text-amber-600 font-medium mb-2">
+        <div className="text-center mb-16 pt-6">
+          {/* <p className="text-amber-600 font-medium mb-2">
             INNOVATION FROM TARKWA-NSUAEM
-          </p>
+          </p> */}
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             The Fowohodie Conversion Kit
           </h2>
@@ -62,7 +64,7 @@ const AboutProduct = () => {
             <div className="relative">
               <div className="absolute -z-10 inset-0 bg-amber-100 rounded-lg transform translate-x-4 translate-y-4"></div>
               <img
-                src="/api/placeholder/600/400"
+                src={About}
                 alt="Fowohodie Conversion Kit"
                 className="w-full h-auto rounded-lg shadow-md relative z-10"
               />
@@ -211,7 +213,7 @@ const AboutProduct = () => {
             </p>
             <div className="flex items-center justify-center">
               <img
-                src="/api/placeholder/64/64"
+                src={KitUser}
                 alt="Testimonial from user"
                 className="w-16 h-16 rounded-full mr-4"
               />

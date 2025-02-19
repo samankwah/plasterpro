@@ -37,6 +37,8 @@ import Showcase from "./pages/home/sections/Showcase";
 import Contact from "./pages/home/sections/Contact";
 // import Hero from "./pages/home/sections/Hero";
 import Error from "./components/Error";
+// import ViewAllProductsButton from "./pages/home/sections/ViewAllProductsButton";
+import ProductCatalog from "./pages/home/sections/ProductCatalog";
 
 const App = () => {
   return (
@@ -50,7 +52,7 @@ const App = () => {
         <Route path="/about-innovator" element={<AboutInnovator />} />
         <Route path="/products" element={<Showcase />} />
         <Route path="/contact" element={<Contact />} />
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/product-catalog" element={<ProductCatalog />} />
         <Route path="*" element={<Error />} />
       </Routes>
 

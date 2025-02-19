@@ -1,9 +1,38 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect } from "react";
+import { motion, useAnimationControls } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import ScrollToTopButton from "../../../components/ScrollToTopButton";
+import Image from "../../../assets/hero.jpg";
 
 const Hero = () => {
+  const controls = useAnimationControls();
+  const companies = [
+    "COMPANY",
+    "ENTERPRISE",
+    "CORPORATION",
+    "GROUP",
+    "INDUSTRY",
+    "STARTUP",
+    "TECH",
+    "SOLUTIONS",
+  ];
+  const duplicatedCompanies = [...companies, ...companies];
+
+  useEffect(() => {
+    const startSlideAnimation = async () => {
+      await controls.start({
+        x: [0, -1920],
+        transition: {
+          duration: 20,
+          ease: "linear",
+          repeat: Infinity,
+        },
+      });
+    };
+
+    startSlideAnimation();
+  }, [controls]);
+
   return (
     <div className="w-full bg-gradient-to-br from-amber-50 to-white pt-20">
       <div className="container mx-auto px-6 py-16">
@@ -59,7 +88,7 @@ const Hero = () => {
             <div className="relative">
               <div className="absolute -z-10 w-4/5 h-4/5 top-8 right-0 bg-amber-200 rounded-lg"></div>
               <img
-                src="/api/placeholder/600/400"
+                src={Image}
                 alt="Fowohodie Services"
                 className="relative z-10 rounded-lg shadow-md w-full h-auto object-cover"
               />
@@ -67,7 +96,7 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* Clients section - minimal approach */}
+        {/* Updated Clients section with slider */}
         <motion.div
           className="mt-16 pt-6 border-t border-gray-100"
           initial={{ opacity: 0 }}
@@ -77,14 +106,20 @@ const Hero = () => {
           <p className="text-center text-gray-500 mb-4 text-sm font-medium">
             TRUSTED BY INDUSTRY LEADERS
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60">
-            {["COMPANY", "ENTERPRISE", "CORPORATION", "GROUP", "INDUSTRY"].map(
-              (company) => (
-                <div key={company} className="text-gray-400 font-bold">
+          <div className="relative w-full overflow-hidden">
+            <motion.div
+              className="flex items-center gap-16 whitespace-nowrap"
+              animate={controls}
+            >
+              {duplicatedCompanies.map((company, index) => (
+                <div
+                  key={`${company}-${index}`}
+                  className="text-gray-400 font-bold px-8 flex-shrink-0"
+                >
                   {company}
                 </div>
-              )
-            )}
+              ))}
+            </motion.div>
           </div>
         </motion.div>
       </div>

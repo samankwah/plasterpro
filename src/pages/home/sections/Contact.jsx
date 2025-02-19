@@ -326,7 +326,7 @@ function Contact() {
                 <div>
                   <h3 className="font-semibold text-gray-800">Address</h3>
                   <p className="text-gray-600">
-                    National Headquaters, Akim Oda
+                    Tarkwa-Nsuaem, Western Region, Ghana
                   </p>
                 </div>
               </div>
@@ -335,7 +335,7 @@ function Contact() {
                 <Phone className="mr-4 text-gray-800" size={32} />
                 <div>
                   <h3 className="font-semibold text-gray-800">Phone</h3>
-                  <p className="text-gray-600">(+233) 508-410-4905</p>
+                  <p className="text-gray-600">(+233) 024-399-9631</p>
                 </div>
               </div>
 
@@ -343,7 +343,9 @@ function Contact() {
                 <Mail className="mr-4 text-gray-800" size={32} />
                 <div>
                   <h3 className="font-semibold text-gray-800">Email</h3>
-                  <p className="text-gray-600">firstbelievers@yahoo.com</p>
+                  <p className="text-gray-600">
+                    info@fawohodieconversionkits.com
+                  </p>
                 </div>
               </div>
             </div>

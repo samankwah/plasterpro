@@ -7,7 +7,9 @@ import {
   Linkedin,
   Mail,
 } from "lucide-react";
+import { HiOutlineAcademicCap } from "react-icons/hi2";
 import { FaGithub } from "react-icons/fa"; // Correct import for GitHub
+import CEO from "../../../assets/ceo.jpg";
 
 const AboutInnovator = () => {
   // Innovator data
@@ -51,17 +53,17 @@ const AboutInnovator = () => {
 
   return (
     <section className="py-20 bg-gradient-to-b from-amber-50 to-white">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 pt-12">
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           {/* Left column - Profile and quick info */}
           <div className="w-full lg:w-1/3">
             <div className="sticky top-8">
               <div className="relative mb-8">
-                <div className="absolute -z-10 inset-0 bg-amber-200 rounded-full transform translate-x-3 translate-y-3"></div>
+                <div className="absolute -z-50 inset-8 rounded-full transform translate-x-3 translate-y-3"></div>
                 <img
-                  src="/api/placeholder/400/400"
+                  src={CEO}
                   alt="Elizabeth Acheampong - Innovator"
-                  className="w-full max-w-md mx-auto rounded-full shadow-lg relative z-10"
+                  className="w-full max-w-md mx-auto rounded-sm shadow-lg relative z-10"
                 />
               </div>
 
@@ -84,7 +86,7 @@ const AboutInnovator = () => {
                 <ul className="space-y-3">
                   {innovator.education.map((edu, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <Calendar className="w-4 h-4 text-amber-500 mt-1 flex-shrink-0" />
+                      <HiOutlineAcademicCap className="w-4 h-4 text-amber-500 mt-1 flex-shrink-0" />
                       <div>
                         <p className="font-medium text-gray-800">
                           {edu.degree}

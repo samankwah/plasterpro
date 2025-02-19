@@ -28,16 +28,29 @@ const Navbar = () => {
     // In a real app, you would apply dark mode classes to the document here
   };
 
-  // Navbar menu items
+  // Navbar menu items with section links
   const menuItems = [
     { name: "Home", link: "/" },
     { name: "About", link: "/about-innovator" },
-
+    { name: "Products", link: "/products" },
     { name: "Features", link: "/about-us" },
-
-    { name: "Services", link: "/products" },
     { name: "Contact", link: "/contact" },
   ];
+
+  // Handle navigation
+  const handleNavigation = (item) => {
+    setActiveItem(item.name);
+    if (isOpen) setIsOpen(false);
+
+    // Only prevent default and handle if you're using a single-page application
+    // window.location.href = item.link; // Use this for multi-page applications
+
+    // Smooth scroll to section if it's on the same page
+    const element = document.getElementById(item.link.substring(1));
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <motion.nav
@@ -61,13 +74,6 @@ const Navbar = () => {
             alt="Fowohodie Logo"
             className="w-10 h-10 rounded-full"
           />
-          {/* <h4
-            className={`text-xl font-bold ${
-              darkMode ? "text-white" : "text-gray-800"
-            }`}
-          >
-            Fowohodie
-          </h4> */}
         </motion.div>
 
         {/* Desktop Menu */}
@@ -84,7 +90,7 @@ const Navbar = () => {
                   ? "text-gray-300"
                   : "text-gray-900"
               } hover:${darkMode ? "text-amber-300" : "text-blue-600"}`}
-              onClick={() => setActiveItem(item.name)}
+              onClick={() => handleNavigation(item)}
               whileHover={{ scale: 1.1 }}
             >
               <a href={item.link}>{item.name}</a>
@@ -93,7 +99,6 @@ const Navbar = () => {
                   className={`absolute bottom-0 left-0 w-full h-0.5 ${
                     darkMode ? "bg-amber-300" : "bg-blue-600"
                   }`}
-                  layoutId="underline"
                 />
               )}
             </motion.li>
@@ -186,10 +191,7 @@ const Navbar = () => {
                       ? "text-white"
                       : "text-gray-900"
                   } hover:${darkMode ? "text-amber-300" : "text-blue-600"}`}
-                  onClick={() => {
-                    setActiveItem(item.name);
-                    setIsOpen(false);
-                  }}
+                  onClick={() => handleNavigation(item)}
                   whileHover={{ x: 5 }}
                 >
                   <a href={item.link}>{item.name}</a>
