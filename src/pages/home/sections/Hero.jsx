@@ -55,13 +55,13 @@ const Hero = () => {
             </p>
             <div className="flex flex-wrap gap-4 mb-8">
               <a
-                href="#services"
+                href="/product-catalog"
                 className="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-md transition-colors duration-200 flex items-center gap-2"
               >
                 Explore Services <ArrowRight size={16} />
               </a>
               <a
-                href="#contact"
+                href="/contact"
                 className="px-6 py-3 border border-gray-300 hover:border-amber-500 hover:text-amber-500 text-gray-700 font-medium rounded-md transition-colors duration-200"
               >
                 Contact Us

@@ -141,13 +141,15 @@ const ProductCatalog = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
+    <div className="min-h-screen bg-slate-50 pt-20 pb-12">
       <div className="container mx-auto px-4 py-8">
-        <div className="flex gap-8">
-          {/* Sidebar Filters */}
-          <div className="hidden md:block w-74 flex-shrink-0">
-            <div className="absolute w-74 bg-white p-6 rounded-lg shadow-sm overflow-y-auto max-h-[calc(100vh-6rem)]">
-              <h2 className="text-xl font-semibold mb-6">FILTER BY</h2>
+        <div className="flex gap-8 relative">
+          {/* Sticky Sidebar */}
+          <div className="hidden md:block w-80 flex-shrink-0">
+            <div className="sticky top-24 w-80 bg-white p-6 rounded-xl shadow-lg border border-slate-100 overflow-y-auto max-h-[calc(100vh-8rem)]">
+              <h2 className="text-xl font-semibold mb-6 text-slate-800">
+                FILTER BY
+              </h2>
 
               {/* Search with Form */}
               <form onSubmit={handleSearch} className="relative mb-6">
@@ -156,11 +158,11 @@ const ProductCatalog = () => {
                     <input
                       type="text"
                       placeholder="Search product..."
-                      className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                      className="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                       value={searchInput}
                       onChange={(e) => setSearchInput(e.target.value)}
                     />
-                    <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+                    <Search className="absolute left-3 top-3 h-5 w-5 text-slate-400" />
                     {searchInput && (
                       <button
                         type="button"
@@ -168,15 +170,15 @@ const ProductCatalog = () => {
                           setSearchInput("");
                           setSearchQuery("");
                         }}
-                        className="absolute right-3 top-2.5"
+                        className="absolute right-3 top-3"
                       >
-                        <X className="h-5 w-5 text-gray-400" />
+                        <X className="h-5 w-5 text-slate-400 hover:text-slate-600" />
                       </button>
                     )}
                   </div>
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors flex items-center justify-center"
+                    className="px-4 py-2.5 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center shadow-sm"
                   >
                     <Search className="h-5 w-5" />
                   </button>
@@ -184,21 +186,23 @@ const ProductCatalog = () => {
               </form>
 
               {/* Categories */}
-              <div className="mb-6">
-                <h3 className="font-semibold mb-3">Categories</h3>
+              <div className="mb-8">
+                <h3 className="font-semibold mb-4 text-slate-800">
+                  Categories
+                </h3>
                 <ul className="space-y-2">
                   {categories.map((category) => (
                     <li key={category.name}>
                       <button
                         onClick={() => setSelectedCategory(category.name)}
-                        className={`w-full text-left flex justify-between items-center py-1 ${
+                        className={`w-full text-left flex justify-between items-center py-2 px-3 rounded-lg transition-colors ${
                           selectedCategory === category.name
-                            ? "text-indigo-600 font-medium"
-                            : "text-gray-600"
+                            ? "bg-emerald-50 text-emerald-700 font-medium"
+                            : "text-slate-600 hover:bg-slate-50"
                         }`}
                       >
                         <span>{category.name}</span>
-                        <span className="text-sm text-gray-400">
+                        <span className="text-sm text-slate-400">
                           ({category.count})
                         </span>
                       </button>
@@ -209,16 +213,18 @@ const ProductCatalog = () => {
 
               {/* Price Range */}
               <div className="mb-6">
-                <h3 className="font-semibold mb-3">Price Range</h3>
+                <h3 className="font-semibold mb-4 text-slate-800">
+                  Price Range
+                </h3>
                 <input
                   type="range"
                   min="0"
                   max="6000"
                   value={priceRange}
                   onChange={(e) => setPriceRange(Number(e.target.value))}
-                  className="w-full"
+                  className="w-full accent-emerald-600"
                 />
-                <div className="flex justify-between text-sm text-gray-600 mt-2">
+                <div className="flex justify-between text-sm text-slate-600 mt-3">
                   <span>GH₵0</span>
                   <span>GH₵{priceRange.toLocaleString()}</span>
                 </div>
@@ -229,24 +235,28 @@ const ProductCatalog = () => {
           {/* Main Content */}
           <div className="flex-1 md:ml-4">
             {/* Header */}
-            <div className="flex justify-between items-center mb-6">
-              <div className="text-gray-600">
+            <div className="flex justify-between items-center mb-6 bg-white p-4 rounded-lg shadow-sm">
+              <div className="text-slate-600 font-medium">
                 {filteredAndSortedProducts.length} Products found
               </div>
               <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 bg-slate-100 rounded-lg p-1">
                   <button
                     onClick={() => setViewMode("grid")}
-                    className={`p-2 ${
-                      viewMode === "grid" ? "text-indigo-600" : "text-gray-400"
+                    className={`p-2 rounded-lg transition-colors ${
+                      viewMode === "grid"
+                        ? "bg-white text-emerald-600 shadow-sm"
+                        : "text-slate-400 hover:text-slate-600"
                     }`}
                   >
                     <Grid size={20} />
                   </button>
                   <button
                     onClick={() => setViewMode("list")}
-                    className={`p-2 ${
-                      viewMode === "list" ? "text-indigo-600" : "text-gray-400"
+                    className={`p-2 rounded-lg transition-colors ${
+                      viewMode === "list"
+                        ? "bg-white text-emerald-600 shadow-sm"
+                        : "text-slate-400 hover:text-slate-600"
                     }`}
                   >
                     <List size={20} />
@@ -255,7 +265,7 @@ const ProductCatalog = () => {
                 <select
                   value={sortType}
                   onChange={(e) => setSortType(e.target.value)}
-                  className="p-2 border rounded-lg bg-white"
+                  className="p-2 border border-slate-200 rounded-lg bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                 >
                   <option value="priceAsc">Price (Lowest)</option>
                   <option value="priceDesc">Price (Highest)</option>
@@ -275,7 +285,7 @@ const ProductCatalog = () => {
               {filteredAndSortedProducts.map((product) => (
                 <div
                   key={product.id}
-                  className={`bg-white rounded-lg shadow-sm overflow-hidden ${
+                  className={`bg-white rounded-xl shadow-sm overflow-hidden border border-slate-100 transition-transform hover:scale-[1.02] ${
                     viewMode === "list" ? "flex" : ""
                   }`}
                 >
@@ -286,21 +296,23 @@ const ProductCatalog = () => {
                       viewMode === "list" ? "w-48 h-48" : "w-full h-48"
                     }`}
                   />
-                  <div className="p-4">
-                    <h2 className="text-xl font-semibold mb-2">
+                  <div className="p-5">
+                    <h2 className="text-xl font-semibold mb-2 text-slate-800">
                       {product.title}
                     </h2>
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                    <p className="text-slate-600 text-sm mb-4 line-clamp-2">
                       {product.description}
                     </p>
                     <div className="flex justify-between items-center">
-                      <span className="text-xl font-bold text-indigo-600">
-                        {product.price === 0
+                      <span className="text-xl font-bold text-emerald-600">
+                        {product.price === "Free"
                           ? "Free"
-                          : `GH₵${product.price.toLocaleString()}`}
+                          : `GH₵${Number(product.price).toLocaleString()}`}
                       </span>
-                      <button className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
-                        {product.price === 0 ? "Get Started" : "Add to Cart"}
+                      <button className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-all shadow-sm hover:shadow-md">
+                        {product.price === "Free"
+                          ? "Get Started"
+                          : "Add to Cart"}
                       </button>
                     </div>
                   </div>

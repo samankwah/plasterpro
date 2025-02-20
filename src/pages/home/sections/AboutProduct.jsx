@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Battery,
   Zap,
@@ -13,6 +14,13 @@ import KitUser from "../../../assets/kit-user.webp";
 import About from "../../../assets/about1.jpg";
 
 const AboutProduct = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/installation");
+    navigate("/contact");
+  };
+
   // Product features data
   const features = [
     {
@@ -99,7 +107,10 @@ const AboutProduct = () => {
                 </li>
               ))}
             </ul>
-            <button className="mt-8 px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-md transition-colors duration-200 flex items-center gap-2">
+            <button
+              className="mt-8 px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-md transition-colors duration-200 flex items-center gap-2"
+              onClick={handleClick}
+            >
               Learn About Installation <ArrowRight size={16} />
             </button>
           </div>
@@ -280,10 +291,16 @@ const AboutProduct = () => {
             new level of independence and freedom.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="px-8 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-md transition-colors duration-200">
+            <button
+              className="px-8 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-md transition-colors duration-200"
+              onClick={handleClick}
+            >
               Request a Demonstration
             </button>
-            <button className="px-8 py-3 border border-gray-300 hover:border-amber-500 hover:text-amber-500 text-gray-700 font-medium rounded-md transition-colors duration-200">
+            <button
+              className="px-8 py-3 border border-gray-300 hover:border-amber-500 hover:text-amber-500 text-gray-700 font-medium rounded-md transition-colors duration-200"
+              onClick={handleClick}
+            >
               Contact Us
             </button>
           </div>
