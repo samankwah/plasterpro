@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   MapPin,
   Calendar,
@@ -6,12 +6,81 @@ import {
   ExternalLink,
   Linkedin,
   Mail,
+  Clock,
+  Video,
+  X,
 } from "lucide-react";
 import { HiOutlineAcademicCap } from "react-icons/hi2";
-import { FaGithub } from "react-icons/fa"; // Correct import for GitHub
+import { FaGithub } from "react-icons/fa";
 import CEO from "../../../assets/ceo.jpg";
+import { Link } from "react-router-dom";
 
 const AboutInnovator = () => {
+  const dialogRef = useRef(null);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    date: "",
+    time: "",
+    topic: "",
+  });
+
+  const timeSlots = [
+    "09:00 AM",
+    "10:00 AM",
+    "11:00 AM",
+    "01:00 PM",
+    "02:00 PM",
+    "03:00 PM",
+    "04:00 PM",
+    "05:00 PM",
+  ];
+
+  // Function to open modal
+  const handleOpenDialog = () => {
+    if (dialogRef.current) {
+      dialogRef.current.showModal();
+    }
+  };
+
+  // Function to close modal
+  const handleCloseDialog = () => {
+    if (dialogRef.current) {
+      dialogRef.current.close();
+    }
+  };
+
+  // Handle form input change
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Meeting Request:", formData);
+    handleCloseDialog(); // Close modal after submission
+  };
+
+  // Close modal when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dialogRef.current && !dialogRef.current.contains(event.target)) {
+        handleCloseDialog();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   // Innovator data
   const innovator = {
     name: "Elizabeth Acheampong",
@@ -208,9 +277,143 @@ const AboutInnovator = () => {
                   Fowohodie Conversion Kit? Reach out to schedule a conversation
                   or demonstration.
                 </p>
-                <button className="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-md transition-colors duration-200">
+                <Link
+                  to="/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleOpenDialog();
+                  }}
+                  className="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-md transition-colors duration-200"
+                >
                   Request a Meeting
-                </button>
+                </Link>
+                {/* Meeting Request Modal */}
+                <dialog
+                  ref={dialogRef}
+                  className="p-6 rounded-2xl shadow-xl backdrop:bg-black backdrop:opacity-60 w-full max-w-lg transition-all transform scale-95 open:scale-100"
+                >
+                  {/* Modal Header */}
+                  <div className="flex justify-between items-center mb-5">
+                    <div className="flex items-center gap-3">
+                      <Video className="w-6 h-6 text-amber-500" />
+                      <h2 className="text-2xl font-semibold text-gray-800">
+                        Schedule a Zoom Meeting
+                      </h2>
+                    </div>
+                    <button
+                      onClick={handleCloseDialog}
+                      className="text-gray-500 hover:text-gray-700"
+                    >
+                      <X className="w-6 h-6" />
+                    </button>
+                  </div>
+
+                  {/* Form */}
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-gray-700">
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        className="w-full p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-amber-500"
+                        onChange={handleInputChange}
+                        value={formData.name}
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-gray-700">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        className="w-full p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-amber-500"
+                        onChange={handleInputChange}
+                        value={formData.email}
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-gray-700">
+                        Meeting Topic
+                      </label>
+                      <input
+                        type="text"
+                        name="topic"
+                        required
+                        className="w-full p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-amber-500"
+                        onChange={handleInputChange}
+                        value={formData.topic}
+                      />
+                    </div>
+
+                    {/* Date & Time Selection */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-gray-700">
+                          Date
+                        </label>
+                        <div className="relative">
+                          <Calendar className="absolute left-3 top-3 h-5 w-5 text-gray-500" />
+                          <input
+                            type="date"
+                            name="date"
+                            required
+                            className="w-full pl-10 p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-amber-500"
+                            onChange={handleInputChange}
+                            value={formData.date}
+                            min={new Date().toISOString().split("T")[0]}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-gray-700">
+                          Time
+                        </label>
+                        <div className="relative">
+                          <Clock className="absolute left-3 top-3 h-5 w-5 text-gray-500" />
+                          <select
+                            name="time"
+                            required
+                            className="w-full pl-10 p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-amber-500"
+                            onChange={handleInputChange}
+                            value={formData.time}
+                          >
+                            <option value="">Select time</option>
+                            {timeSlots.map((slot) => (
+                              <option key={slot} value={slot}>
+                                {slot}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Buttons */}
+                    <div className="flex justify-end gap-4 pt-4">
+                      <button
+                        type="button"
+                        className="px-5 py-3 text-gray-500 hover:text-gray-700 transition-all rounded-lg"
+                        onClick={handleCloseDialog}
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        type="submit"
+                        className="px-5 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-lg shadow-lg transition-all"
+                      >
+                        Schedule Meeting
+                      </button>
+                    </div>
+                  </form>
+                </dialog>
               </div>
             </div>
           </div>

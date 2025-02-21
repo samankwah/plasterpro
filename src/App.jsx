@@ -11,6 +11,7 @@ import Contact from "./pages/home/sections/Contact";
 import Error from "./components/Error";
 import ProductCatalog from "./pages/home/sections/ProductCatalog";
 import AboutInstallation from "./components/AboutInstallation";
+import MeetingRequest from "./components/MeetingRequest ";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/installation" element={<AboutInstallation />} />
         <Route path="/product-catalog" element={<ProductCatalog />} />
+        <Route path="/request-meeting" element={<MeetingRequest />} />
         <Route path="*" element={<Error />} />
       </Routes>
 

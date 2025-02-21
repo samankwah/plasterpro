@@ -1,13 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X, Search, ShoppingCart, User, Sun, Moon } from "lucide-react";
-import Logo from "../assets/fawohodie-logo1.png";
-import { Link } from "react-router-dom";
+// import Logo from "../assets/fawohodie-logo1.png";
+import { Link, useLocation } from "react-router-dom";
+import LogoDark from "../assets/fawohodie-logo1.png"; // Original dark logo
+import LogoWhite from "../assets/fawohodie-logo-white.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
-  const [activeItem, setActiveItem] = useState("Home");
+  const location = useLocation();
+  const mobileMenuRef = useRef(null);
+  const menuButtonRef = useRef(null);
 
   // Handle scroll effect for navbar
   useEffect(() => {
@@ -23,6 +27,23 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Handle click outside to close mobile menu
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        isOpen &&
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target) &&
+        !menuButtonRef.current.contains(event.target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen]);
+
   // Toggle dark mode
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -37,16 +58,9 @@ const Navbar = () => {
     { name: "Contact", link: "/contact" },
   ];
 
-  // Handle navigation
-  const handleNavigation = (item) => {
-    setActiveItem(item.name);
-    if (isOpen) setIsOpen(false);
-
-    // Smooth scroll to section if it's on the same page
-    const element = document.getElementById(item.link.substring(1));
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  // Check if link is active
+  const isActive = (path) => {
+    return location.pathname === path;
   };
 
   return (
@@ -58,51 +72,28 @@ const Navbar = () => {
       } ${darkMode ? "bg-gray-900 text-white" : ""}`}
     >
       <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <div className="flex items-center space-x-6">
-          <img src={Logo} alt="Fowohodie Logo" className="w-50 h-10" />
-        </div>
+        {/* Logo with Link */}
+        <Link to="/" className="flex items-center space-x-6">
+          <img
+            src={darkMode ? LogoWhite : LogoDark}
+            alt="Fowohodie Logo"
+            className="w-40 h-10"
+          />
+        </Link>
 
         {/* Desktop Menu */}
-        {/* <ul className="hidden md:flex space-x-6 font-medium">
-          {navLinks.map((item) => (
-            <li
-              key={item.name}
-              className={`cursor-pointer relative ${
-                activeItem === item.name
-                  ? darkMode
-                    ? "text-amber-300"
-                    : "text-blue-600"
-                  : darkMode
-                  ? "text-gray-300"
-                  : "text-gray-900"
-              }`}
-              onClick={() => handleNavigation(item)}
-            >
-              <a href={item.link} className="relative block py-2">
-                {item.name}
-                <span
-                  className={`absolute bottom-0 left-0 w-full h-0.5 ${
-                    activeItem === item.name
-                      ? darkMode
-                        ? "bg-amber-300"
-                        : "bg-blue-600"
-                      : "bg-transparent"
-                  } transition-all duration-300`}
-                />
-              </a>
-            </li>
-          ))}
-        </ul> */}
         <ul className="hidden md:flex space-x-6">
           {navLinks.map((item) => (
             <li key={item.name}>
               <Link
-                to={item.link} // Use `to` instead of `href`
-                className={`hover:text-amber-600 transition-colors ${
+                to={item.link}
+                className={`transition-colors relative ${
                   darkMode ? "text-white" : "text-gray-900"
+                } ${
+                  isActive(item.link)
+                    ? "font-semibold after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-0.5 after:bg-amber-600"
+                    : "hover:text-amber-600"
                 }`}
-                onClick={() => handleNavigation(item)}
               >
                 {item.name}
               </Link>
@@ -159,6 +150,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
+          ref={menuButtonRef}
           className={`md:hidden p-2 rounded-lg ${
             darkMode ? "bg-amber-500 text-gray-900" : "bg-gray-800 text-white"
           }`}
@@ -173,26 +165,27 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div
+          ref={mobileMenuRef}
           className={`absolute top-16 left-0 w-full ${
             darkMode ? "bg-gray-800" : "bg-amber-300"
           } p-4 shadow-lg md:hidden`}
         >
           <ul className="flex flex-col space-y-4 font-medium">
             {navLinks.map((item) => (
-              <li
-                key={item.name}
-                className={`cursor-pointer ${
-                  activeItem === item.name
-                    ? darkMode
-                      ? "text-amber-300"
-                      : "text-blue-600"
-                    : darkMode
-                    ? "text-white"
-                    : "text-gray-900"
-                }`}
-                onClick={() => handleNavigation(item)}
-              >
-                <a href={item.link}>{item.name}</a>
+              <li key={item.name}>
+                <Link
+                  to={item.link}
+                  className={`block transition-colors relative ${
+                    darkMode ? "text-white" : "text-gray-900"
+                  } ${
+                    isActive(item.link)
+                      ? "font-semibold text-amber-600"
+                      : "hover:text-amber-600"
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
               </li>
             ))}
           </ul>
