@@ -18,7 +18,7 @@ const AboutProduct = () => {
 
   const handleClick = () => {
     navigate("/installation");
-    navigate("/contact");
+    // navigate("/contact");
   };
 
   // Product features data
