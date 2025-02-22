@@ -4,37 +4,38 @@ import Product1 from "../../../assets/about1.jpg";
 import Product2 from "../../../assets/about.jpg";
 import Product3 from "../../../assets/feat2.jpg";
 import Product4 from "../../../assets/product6.jpg";
+
 const Showcase = () => {
   // Sample data for products/services
   const showcaseItems = [
     {
-      title: "Fowohodie Conversion Kit",
+      title: "POP Ceiling Installation",
       description:
-        "A locally designed mobility solution to help individuals with physical disabilities gain independence. It can be easily installed on existing wheelchairs.",
+        "High-quality Plaster of Paris (POP) ceiling designs for modern homes and offices. Enhances aesthetics and improves interior ambiance.",
       imageUrl: Product1,
-      price: "GH₵3500",
+      price: "GH₵5000",
       badge: "Best Seller",
     },
     {
-      title: "Accessible Design Workshops",
+      title: "Room Lighting Solutions",
       description:
-        "Workshops aimed at training young engineers to design accessible technologies that improve the lives of people with disabilities.",
+        "Professional installation of stylish and energy-efficient lighting for residential and commercial spaces.",
       imageUrl: Product2,
-      price: "GH₵1800",
+      price: "GH₵2500",
       badge: "New",
     },
     {
-      title: "Smart Mobility Device",
+      title: "Hardware Installation Services",
       description:
-        "A wearable, AI-powered device to assist with mobility in urban spaces. It offers real-time guidance and obstacle detection.",
+        "Expert installation of various building hardware, including ceiling frames, wall brackets, and electrical fittings.",
       imageUrl: Product3,
-      price: "GH₵5900",
+      price: "GH₵7000",
       badge: "Premium",
     },
     {
-      title: "Community Support Groups",
+      title: "Repairs & Maintenance",
       description:
-        "Local communities formed to support individuals with disabilities by advocating for accessible public spaces and providing peer support.",
+        "Reliable repairs and maintenance services for ceilings, walls, and lighting fixtures to keep your space in top condition.",
       imageUrl: Product4,
       price: "Free",
       badge: "Community",
@@ -58,11 +59,11 @@ const Showcase = () => {
       <div className="container mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-5 tracking-tight">
-            Featured Products
+            Featured Services
           </h2>
           <p className="max-w-2xl mx-auto text-xl text-gray-600 leading-relaxed">
-            Discover innovative products and services created to empower
-            individuals with disabilities and enhance their lives.
+            Discover top-quality ceiling installations, lighting solutions, and
+            maintenance services tailored for homes and businesses.
           </p>
         </div>
 

@@ -68,13 +68,19 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/products" className="hover:text-white">
-                  Products
+                <Link to="/about-innovator" className="hover:text-white">
+                  About
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-white">
-                  About Us
+                <Link to="/product-catalog" className="hover:text-white">
+                  Products
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/about-us" className="hover:text-white">
+                  Services
                 </Link>
               </li>
               <li>
@@ -82,49 +88,44 @@ const Footer = () => {
                   Contact
                 </Link>
               </li>
-              <li>
-                <Link to="/blog" className="hover:text-white">
-                  Blog
-                </Link>
-              </li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-white text-lg font-semibold mb-4">
-              Categories
+              Our Services
             </h3>
             <ul className="text-sm space-y-2">
               <li>
                 <Link
-                  to="/product-catalog?category=mobility"
+                  to="/services?category=pop-ceiling"
                   className="hover:text-white"
                 >
-                  Mobility Solutions
+                  POP Ceiling Designs
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/product-catalog?category=education"
+                  to="/services?category=lighting"
                   className="hover:text-white"
                 >
-                  Educational Resources
+                  Lighting Installations
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/product-catalog?category=community"
+                  to="/services?category=interior-design"
                   className="hover:text-white"
                 >
-                  Community Support
+                  Interior & Home Design
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/product-catalog?category=technology"
+                  to="/services?category=repair"
                   className="hover:text-white"
                 >
-                  Assistive Technology
+                  Repairs & Maintenance
                 </Link>
               </li>
             </ul>
@@ -156,7 +157,7 @@ const Footer = () => {
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                 </svg>
-                <span>123 Innovation Street, Accra, Ghana</span>
+                <span>123 Madina Street, Accra, Ghana</span>
               </li>
               <li className="flex items-start">
                 <svg
@@ -173,7 +174,7 @@ const Footer = () => {
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
-                <span>info@fowohodie.com</span>
+                <span>info@plasterprogh.com</span>
               </li>
               <li className="flex items-start">
                 <svg
@@ -198,7 +199,8 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 border-t border-gray-700 text-sm text-center">
           <p>
-            &copy; {new Date().getFullYear()} Fowohodie. All rights reserved.
+            &copy; {new Date().getFullYear()} PlasterPro Ghana. All rights
+            reserved.
           </p>
         </div>
       </div>

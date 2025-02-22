@@ -163,11 +163,11 @@ const AboutInstallation = () => {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Professional Installation Service
+            Expert Plastering Services
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Our expert team ensures your Fowohodie Conversion Kit is installed
-            safely and efficiently, optimizing it for your specific needs.
+            Our skilled team at PlasterPro ensures high-quality finishes that
+            enhance both durability and aesthetics of your walls and ceilings.
           </p>
         </motion.div>
 
@@ -324,10 +324,11 @@ const AboutInstallation = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           <p className="text-lg text-gray-600 mb-6">
-            Ready to get started? Schedule your installation today.
+            Ready to give your walls a perfect finish? Schedule your service
+            today.
           </p>
           <button className="px-8 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-md transition-colors duration-200">
-            Schedule Installation
+            Book a Plastering Service
           </button>
         </motion.div>
       </div>

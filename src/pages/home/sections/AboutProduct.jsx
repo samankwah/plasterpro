@@ -1,16 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  Battery,
-  Zap,
+  Wrench,
+  Hammer,
   Award,
-  Heart,
+  Star,
   Settings,
   MapPin,
   Clock,
   ArrowRight,
 } from "lucide-react";
-import KitUser from "../../../assets/kit-user.webp";
+import ServiceImage from "../../../assets/kit-user.webp";
 import About from "../../../assets/about1.jpg";
 
 const AboutProduct = () => {
@@ -24,28 +24,28 @@ const AboutProduct = () => {
   // Product features data
   const features = [
     {
-      icon: <Battery className="w-6 h-6 text-amber-500" />,
-      title: "Long-lasting Battery",
+      icon: <Wrench className="w-6 h-6 text-amber-500" />,
+      title: "Quality Materials",
       description:
-        "Enjoy up to 8 hours of continuous use on a single charge, providing reliable mobility throughout the day.",
+        "Premium POP ceilings, lighting fixtures, and hardware materials sourced from trusted manufacturers.",
     },
     {
-      icon: <Zap className="w-6 h-6 text-amber-500" />,
-      title: "Quick Installation",
+      icon: <Hammer className="w-6 h-6 text-amber-500" />,
+      title: "Professional Installation",
       description:
-        "The kit can be installed on most standard manual wheelchairs in under 30 minutes, no special tools required.",
+        "Expert installation services by our trained team, ensuring perfect finishing every time.",
     },
     {
       icon: <Settings className="w-6 h-6 text-amber-500" />,
-      title: "Adjustable Settings",
+      title: "Maintenance Support",
       description:
-        "Customize speed and sensitivity settings to match individual preferences and needs.",
+        "Comprehensive after-service support and maintenance for all installed products.",
     },
     {
-      icon: <Heart className="w-6 h-6 text-amber-500" />,
-      title: "Enhanced Quality of Life",
+      icon: <Star className="w-6 h-6 text-amber-500" />,
+      title: "Customer Satisfaction",
       description:
-        "Designed to reduce physical strain and increase independence for users with mobility impairments.",
+        "Dedicated to delivering exceptional service and ensuring complete customer satisfaction.",
     },
   ];
 
@@ -54,15 +54,12 @@ const AboutProduct = () => {
       <div className="container mx-auto px-6">
         {/* Section header */}
         <div className="text-center mb-16 pt-6">
-          {/* <p className="text-amber-600 font-medium mb-2">
-            INNOVATION FROM TARKWA-NSUAEM
-          </p> */}
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            The Fowohodie Conversion Kit
+            PlasterPro Ghana Services
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Transforming manual wheelchairs into motorized mobility solutions
-            for greater independence and freedom.
+            Your one-stop solution for quality building hardware, POP ceilings,
+            and interior finishing materials.
           </p>
         </div>
 
@@ -73,31 +70,31 @@ const AboutProduct = () => {
               <div className="absolute -z-10 inset-0 bg-amber-100 rounded-lg transform translate-x-4 translate-y-4"></div>
               <img
                 src={About}
-                alt="Fowohodie Conversion Kit"
+                alt="PlasterPro Ghana Services"
                 className="w-full h-auto rounded-lg shadow-md relative z-10"
               />
             </div>
           </div>
           <div className="w-full lg:w-1/2">
             <span className="text-amber-500 font-semibold text-sm tracking-wider uppercase">
-              Mobility Solution
+              Complete Solutions
             </span>
             <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mt-2 mb-4">
-              How It Works
+              Our Services
             </h3>
             <p className="text-gray-600 mb-6 text-justify">
-              The Fowohodie Conversion Kit transforms standard manual
-              wheelchairs into motorized ones through a battery-powered motor
-              system. The kit is designed for easy installation and operation,
-              making mobility more accessible without the high cost of
-              purchasing a new motorized wheelchair.
+              PlasterPro Ghana provides comprehensive solutions for all your
+              interior finishing needs. From POP ceilings to room lighting and
+              hardware materials, we handle everything from supply to
+              installation, making your construction process seamless and
+              efficient.
             </p>
             <ul className="space-y-4">
               {[
-                "Compatible with most standard manual wheelchair models",
-                "Intuitive control system with adjustable sensitivity",
-                "Swappable battery system for extended use",
-                "Weather-resistant components for both indoor and outdoor use",
+                "High-quality POP ceilings and installation",
+                "Modern room lighting solutions",
+                "Durable tapping and drywall screws",
+                "Professional wall angle and galvanised profile installation",
               ].map((item, index) => (
                 <li key={index} className="flex items-start gap-2">
                   <div className="w-5 h-5 bg-amber-500 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
@@ -111,7 +108,7 @@ const AboutProduct = () => {
               className="mt-8 px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-md transition-colors duration-200 flex items-center gap-2"
               onClick={handleClick}
             >
-              Learn About Installation <ArrowRight size={16} />
+              Request Installation <ArrowRight size={16} />
             </button>
           </div>
         </div>
@@ -120,66 +117,66 @@ const AboutProduct = () => {
         <div className="mb-20">
           <div className="text-center mb-12">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-              Benefits of the Conversion Kit
+              Why Choose PlasterPro Ghana
             </h3>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              The Fowohodie Conversion Kit offers numerous advantages for
-              wheelchair users and their caregivers.
+              Experience the convenience and quality that sets us apart in the
+              construction industry.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-amber-500">
               <h4 className="text-xl font-semibold text-gray-800 mb-3">
-                Enhanced Independence
+                One-Stop Solution
               </h4>
               <p className="text-gray-600">
-                Users gain greater control over their mobility, reducing
-                reliance on caregivers for everyday movement and activities.
+                All your interior finishing materials and installation needs
+                under one roof.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-amber-500">
               <h4 className="text-xl font-semibold text-gray-800 mb-3">
-                Reduced Physical Strain
+                Quality Products
               </h4>
               <p className="text-gray-600">
-                Minimizes upper body exertion, preventing long-term injuries and
-                fatigue associated with manual propulsion.
+                Premium materials sourced from reliable manufacturers ensuring
+                durability and satisfaction.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-amber-500">
               <h4 className="text-xl font-semibold text-gray-800 mb-3">
-                Cost-Effective Solution
+                Expert Installation
               </h4>
               <p className="text-gray-600">
-                Offers the benefits of a motorized wheelchair at a fraction of
-                the cost of purchasing a new electric wheelchair.
+                Professional installation services by trained technicians with
+                years of experience.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-amber-500">
               <h4 className="text-xl font-semibold text-gray-800 mb-3">
-                Improved Accessibility
+                Time Efficiency
               </h4>
               <p className="text-gray-600">
-                Makes navigating inclines, rough terrain, and longer distances
-                significantly easier for users.
+                Save time by avoiding multiple market visits and coordinating
+                with different vendors.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-amber-500">
               <h4 className="text-xl font-semibold text-gray-800 mb-3">
-                Community Integration
+                Customer Support
               </h4>
               <p className="text-gray-600">
-                Enables users to participate more actively in social,
-                educational, and professional activities.
+                Dedicated support team available for consultation and
+                after-service assistance.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-amber-500">
               <h4 className="text-xl font-semibold text-gray-800 mb-3">
-                Customizable Experience
+                Competitive Pricing
               </h4>
               <p className="text-gray-600">
-                Adaptive controls can be tailored to accommodate various
-                mobility impairments and personal preferences.
+                Fair and transparent pricing with options for different budgets
+                and project scales.
               </p>
             </div>
           </div>
@@ -189,11 +186,11 @@ const AboutProduct = () => {
         <div className="mb-20">
           <div className="text-center mb-12">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-              Technical Features
+              Our Product Range
             </h3>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Innovative engineering meets practical design in every aspect of
-              the Fowohodie Conversion Kit.
+              Comprehensive selection of quality building materials and hardware
+              solutions.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -217,20 +214,21 @@ const AboutProduct = () => {
           <div className="max-w-3xl mx-auto text-center">
             <div className="text-amber-500 text-4xl mb-6">"</div>
             <p className="text-xl md:text-2xl text-gray-700 italic mb-6">
-              Before the Fowohodie Conversion Kit, I struggled to move around my
-              neighborhood independently. Now, I can visit friends, go to the
-              market, and even attend community events without exhausting myself
-              or relying on others for help.
+              PlasterPro Ghana transformed our construction process. Their
+              one-stop solution saved us countless hours of material sourcing,
+              and their installation team delivered exceptional quality. I
+              highly recommend their services to anyone looking for reliable
+              interior finishing solutions.
             </p>
             <div className="flex items-center justify-center">
               <img
-                src={KitUser}
-                alt="Testimonial from user"
+                src={ServiceImage}
+                alt="Testimonial from client"
                 className="w-16 h-16 rounded-full mr-4"
               />
               <div className="text-left">
-                <p className="font-semibold text-gray-800">Kofi Mensah</p>
-                <p className="text-gray-500 text-sm">Kit user since 2023</p>
+                <p className="font-semibold text-gray-800">Samuel Addo</p>
+                <p className="text-gray-500 text-sm">Property Developer</p>
               </div>
             </div>
           </div>
@@ -240,42 +238,44 @@ const AboutProduct = () => {
         <div className="flex flex-col md:flex-row items-center bg-amber-50 rounded-lg overflow-hidden mb-20">
           <div className="w-full md:w-2/3 p-8 md:p-12">
             <h3 className="text-2xl font-bold text-gray-800 mb-4">
-              Availability & Support
+              Service Coverage & Support
             </h3>
             <p className="text-gray-700 mb-6">
-              The Fowohodie Conversion Kit is available throughout the Western
-              Region with plans for nationwide distribution. Each kit comes with
-              a 1-year warranty and access to our support team for installation
-              assistance and maintenance guidance.
+              PlasterPro Ghana currently serves the Greater Accra Region with
+              plans for expansion. We provide comprehensive support including
+              consultation, installation, and after-service maintenance for all
+              our products.
             </p>
             <div className="flex flex-wrap gap-4 mb-4">
               <div className="flex items-center gap-2">
                 <Clock className="w-5 h-5 text-amber-500" />
-                <span className="text-gray-700">2-day delivery available</span>
+                <span className="text-gray-700">Quick response time</span>
               </div>
               <div className="flex items-center gap-2">
                 <Settings className="w-5 h-5 text-amber-500" />
-                <span className="text-gray-700">Free installation support</span>
+                <span className="text-gray-700">Professional installation</span>
               </div>
             </div>
             <button className="mt-4 px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-md transition-colors duration-200">
-              Check Availability In Your Area
+              Check Service Availability
             </button>
           </div>
           <div className="w-full md:w-1/3 bg-amber-100 p-8 md:p-12">
             <div className="text-center">
               <p className="text-lg font-medium text-gray-800 mb-2">
-                Starting from
+                Free Consultation
               </p>
               <p className="text-4xl font-bold text-amber-600 mb-2">
-                GH₵ 2,499
+                Available Now
               </p>
-              <p className="text-gray-600 mb-4">Installment plans available</p>
+              <p className="text-gray-600 mb-4">
+                Customized quotations for your project
+              </p>
               <div className="flex justify-center">
                 <Award className="w-8 h-8 text-amber-500" />
               </div>
               <p className="text-sm text-gray-600 mt-2">
-                Winner of the 2023 Regional Innovation Award
+                Trusted by leading construction companies
               </p>
             </div>
           </div>
@@ -284,18 +284,18 @@ const AboutProduct = () => {
         {/* CTA */}
         <div className="text-center">
           <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
-            Ready to Transform Your Mobility Experience?
+            Ready to Start Your Project?
           </h3>
           <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            Join the growing community of Fowohodie users who have discovered a
-            new level of independence and freedom.
+            Join our satisfied customers who have experienced the convenience
+            and quality of PlasterPro Ghana's services.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <button
               className="px-8 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-md transition-colors duration-200"
               onClick={handleClick}
             >
-              Request a Demonstration
+              Request a Quote
             </button>
             <button
               className="px-8 py-3 border border-gray-300 hover:border-amber-500 hover:text-amber-500 text-gray-700 font-medium rounded-md transition-colors duration-200"

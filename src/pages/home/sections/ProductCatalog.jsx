@@ -14,82 +14,82 @@ const ProductCatalog = () => {
   const [searchInput, setSearchInput] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortType, setSortType] = useState("priceAsc");
-  const [priceRange, setPriceRange] = useState(6000);
+  const [priceRange, setPriceRange] = useState(10000);
   const [viewMode, setViewMode] = useState("grid");
 
   const allProducts = useMemo(
     () => [
       {
         id: 1,
-        title: "Fowohodie Conversion Kit",
+        title: "POP Ceiling Installation",
         description:
-          "A locally designed mobility solution to help individuals with physical disabilities gain independence. It can be easily installed on existing wheelchairs.",
+          "High-quality Plaster of Paris (POP) ceiling designs for modern homes and offices.",
         imageUrl: Feature1,
-        price: "3500",
-        category: "Mobility",
+        price: "5000",
+        category: "Ceilings",
       },
       {
         id: 2,
-        title: "Accessible Design Workshops",
+        title: "Room Lighting Solutions",
         description:
-          "Workshops aimed at training young engineers to design accessible technologies that improve the lives of people with disabilities.",
+          "Professional installation of stylish and energy-efficient lighting for interiors.",
         imageUrl: Feature2,
-        price: "1800",
-        category: "Education",
+        price: "2500",
+        category: "Lighting",
       },
       {
         id: 3,
-        title: "Smart Mobility Device",
+        title: "Tapping Screws",
         description:
-          "A wearable, AI-powered device to assist with mobility in urban spaces. It offers real-time guidance and obstacle detection.",
+          "Durable tapping screws for securing metal and wood surfaces with precision.",
         imageUrl: Feature3,
-        price: "5900",
-        category: "Technology",
+        price: "150",
+        category: "Hardware",
       },
       {
         id: 4,
-        title: "Community Support Groups",
+        title: "Drywall Screws",
         description:
-          "Local communities formed to support individuals with disabilities by advocating for accessible public spaces and providing peer support.",
+          "Reliable drywall screws for securing plasterboard installations with ease.",
         imageUrl: Feature4,
-        price: "Free",
-        category: "Community",
+        price: "200",
+        category: "Hardware",
       },
       {
         id: 5,
-        title: "Fowohodie Conversion Kit",
+        title: "Wall Angle Brackets",
         description:
-          "A locally designed mobility solution to help individuals with physical disabilities gain independence. It can be easily installed on existing wheelchairs.",
+          "Premium wall angle brackets for strong and lasting interior structures.",
         imageUrl: Feature5,
-        price: "3500",
-        category: "Mobility",
+        price: "1200",
+        category: "Hardware",
       },
       {
         id: 6,
-        title: "Accessible Design Workshops",
+        title: "Galvanized Profiles",
         description:
-          "Workshops aimed at training young engineers to design accessible technologies that improve the lives of people with disabilities.",
+          "Corrosion-resistant galvanized profiles for durable ceiling and wall support.",
         imageUrl: Feature6,
-        price: "1800",
-        category: "Education",
+        price: "3000",
+        category: "Profiles",
       },
       {
         id: 7,
-        title: "Smart Mobility Device",
+        title: "Hardware Installation Services",
         description:
-          "A wearable, AI-powered device to assist with mobility in urban spaces. It offers real-time guidance and obstacle detection.",
+          "Expert installation of various building hardware for residential and commercial spaces.",
         imageUrl: Feature7,
-        price: "5900",
-        category: "Technology",
+        price: "7000",
+        category: "Services",
       },
       {
         id: 8,
-        title: "Community Support Groups",
+        title: "Repairs & Maintenance",
         description:
-          "Local communities formed to support individuals with disabilities by advocating for accessible public spaces and providing peer support.",
+          "Professional repair and maintenance services for ceilings, walls, and lighting fixtures.",
         imageUrl: Feature8,
         price: "Free",
-        category: "Community",
+        category: "Services",
       },
     ],
     []
@@ -112,7 +112,8 @@ const ProductCatalog = () => {
     let filtered = allProducts.filter((product) => {
       const matchesCategory =
         selectedCategory === "All" || product.category === selectedCategory;
-      const matchesPrice = product.price <= priceRange;
+      const matchesPrice =
+        product.price === "Free" || Number(product.price) <= priceRange;
       const matchesSearch =
         searchQuery === "" ||
         product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
