@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Wrench,
   Hammer,
@@ -11,14 +11,13 @@ import {
   ArrowRight,
 } from "lucide-react";
 import ServiceImage from "../../../assets/kit-user.webp";
-import About from "../../../assets/about1.jpg";
+import PlasterProInstall from "../../../assets/popinstallation.mp4";
 
 const AboutProduct = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
     navigate("/installation");
-    // navigate("/contact");
   };
 
   // Product features data
@@ -68,11 +67,14 @@ const AboutProduct = () => {
           <div className="w-full lg:w-1/2">
             <div className="relative">
               <div className="absolute -z-10 inset-0 bg-amber-100 rounded-lg transform translate-x-4 translate-y-4"></div>
-              <img
-                src={About}
-                alt="PlasterPro Ghana Services"
-                className="w-full h-auto rounded-lg shadow-md relative z-10"
-              />
+              <video
+                src={PlasterProInstall}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="relative z-10 rounded-lg shadow-md w-full h-[70vh] object-cover"
+              ></video>
             </div>
           </div>
           <div className="w-full lg:w-1/2">
@@ -291,18 +293,18 @@ const AboutProduct = () => {
             and quality of PlasterPro Ghana's services.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button
+            <Link
+              to="/products"
               className="px-8 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-md transition-colors duration-200"
-              onClick={handleClick}
             >
               Request a Quote
-            </button>
-            <button
+            </Link>
+            <Link
+              to="/contact"
               className="px-8 py-3 border border-gray-300 hover:border-amber-500 hover:text-amber-500 text-gray-700 font-medium rounded-md transition-colors duration-200"
-              onClick={handleClick}
             >
               Contact Us
-            </button>
+            </Link>
           </div>
         </div>
       </div>

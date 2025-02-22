@@ -1,13 +1,13 @@
 import React, { useState, useMemo } from "react";
 import { Search, Grid, List, X } from "lucide-react";
-import Feature1 from "../../../assets/about2.jpg";
-import Feature2 from "../../../assets/feat1.jpg";
-import Feature3 from "../../../assets/product1.jpg";
-import Feature4 from "../../../assets/feat2.jpg";
-import Feature5 from "../../../assets/product3.jpg";
-import Feature6 from "../../../assets/feat3.jpg";
-import Feature7 from "../../../assets/product6.jpg";
-import Feature8 from "../../../assets/feat4.jpg";
+import Feature1 from "../../../assets/kitchenInterior.jpg";
+import Feature2 from "../../../assets/tappingscrew.jpg";
+import Feature3 from "../../../assets/wwallangle.jpg";
+import Feature4 from "../../../assets/drywallscrews.jpg";
+import Feature5 from "../../../assets/lighting1.jpg";
+import Feature6 from "../../../assets/galvanisedprofiles.jpg";
+import Feature7 from "../../../assets/outdoorinetrior.jpg";
+import Feature8 from "../../../assets/popbucket.jpg";
 
 const ProductCatalog = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -33,7 +33,7 @@ const ProductCatalog = () => {
         title: "Room Lighting Solutions",
         description:
           "Professional installation of stylish and energy-efficient lighting for interiors.",
-        imageUrl: Feature2,
+        imageUrl: Feature5,
         price: "2500",
         category: "Lighting",
       },
@@ -42,7 +42,7 @@ const ProductCatalog = () => {
         title: "Tapping Screws",
         description:
           "Durable tapping screws for securing metal and wood surfaces with precision.",
-        imageUrl: Feature3,
+        imageUrl: Feature2,
         price: "150",
         category: "Hardware",
       },
@@ -60,7 +60,7 @@ const ProductCatalog = () => {
         title: "Wall Angle Brackets",
         description:
           "Premium wall angle brackets for strong and lasting interior structures.",
-        imageUrl: Feature5,
+        imageUrl: Feature3,
         price: "1200",
         category: "Hardware",
       },

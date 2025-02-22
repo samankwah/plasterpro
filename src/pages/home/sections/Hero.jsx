@@ -133,7 +133,7 @@ import React, { useEffect } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import ScrollToTopButton from "../../../components/ScrollToTopButton";
-import Image from "../../../assets/about1.jpg"; // Update with actual image
+import PlasterProVideo from "../../../assets/ouroffice.mp4"; // Update with actual image
 
 const Hero = () => {
   const controls = useAnimationControls();
@@ -186,7 +186,7 @@ const Hero = () => {
             </p>
             <div className="flex flex-wrap gap-4 mb-8">
               <a
-                href="/shop"
+                href="/product-catalog"
                 className="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-md transition-colors duration-200 flex items-center gap-2"
               >
                 Shop Now <ArrowRight size={16} />
@@ -218,11 +218,14 @@ const Hero = () => {
           >
             <div className="relative">
               <div className="absolute -z-10 w-4/5 h-4/5 top-8 right-0 bg-amber-200 rounded-lg"></div>
-              <img
-                src={Image}
-                alt="PlasterPro Ghana"
+              <video
+                src={PlasterProVideo} // Update the path to your video file
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="relative z-10 rounded-lg shadow-md w-full h-auto object-cover"
-              />
+              ></video>
             </div>
           </motion.div>
         </div>

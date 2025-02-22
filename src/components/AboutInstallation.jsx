@@ -149,7 +149,7 @@ const AboutInstallation = () => {
     <div className="py-16 bg-gradient-to-b from-gray-50 to-white pt-20">
       <div className="container mx-auto px-4">
         <button
-          onClick={() => navigate("/about-us")}
+          onClick={() => navigate("/services")}
           className="text-teal-500 hover:text-teal-600 flex items-center gap-2 transition-colors mb-6"
         >
           <span>←</span>

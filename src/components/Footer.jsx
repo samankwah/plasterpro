@@ -7,10 +7,12 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-white text-lg font-semibold mb-4">Fowohodie</h3>
+            <h3 className="text-white text-lg font-semibold mb-4">
+              PlasterPro Ghana
+            </h3>
             <p className="mb-4 text-sm">
-              Empowering individuals with disabilities through innovative
-              mobility solutions.
+              Providing expert POP ceiling designs, lighting installations, and
+              home improvement solutions** with precision and excellence.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white">
@@ -79,7 +81,7 @@ const Footer = () => {
               </li>
 
               <li>
-                <Link to="/about-us" className="hover:text-white">
+                <Link to="/services" className="hover:text-white">
                   Services
                 </Link>
               </li>

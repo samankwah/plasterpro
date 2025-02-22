@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ViewAllProductsButton from "./ViewAllProductsButton"; // Import the button component
-import Product1 from "../../../assets/about1.jpg";
-import Product2 from "../../../assets/about.jpg";
-import Product3 from "../../../assets/feat2.jpg";
-import Product4 from "../../../assets/product6.jpg";
+import Product1 from "../../../assets/ceiling2.jpg";
+import Product2 from "../../../assets/lighting4.jpg";
+import Product3 from "../../../assets/galvanisedprofiles.jpg";
+import Product4 from "../../../assets/poptruck.jpg";
 
 const Showcase = () => {
   // Sample data for products/services
@@ -59,7 +59,7 @@ const Showcase = () => {
       <div className="container mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-5 tracking-tight">
-            Featured Services
+            Our Featured Services
           </h2>
           <p className="max-w-2xl mx-auto text-xl text-gray-600 leading-relaxed">
             Discover top-quality ceiling installations, lighting solutions, and
@@ -82,7 +82,7 @@ const Showcase = () => {
                 <img
                   src={item.imageUrl}
                   alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-center transition-transform duration-500 group-hover:scale-110"
                 />
                 {item.badge && (
                   <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-gray-800 shadow-sm">
