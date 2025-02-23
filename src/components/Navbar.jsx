@@ -66,7 +66,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-6">
-          <img src={LogoWhite} alt="PlasterPro Logo" className="w-40 h-10" />
+          <img src={LogoWhite} alt="PlasterPro Logo" className="w-50 h-10" />
         </Link>
 
         {/* Desktop Menu */}
