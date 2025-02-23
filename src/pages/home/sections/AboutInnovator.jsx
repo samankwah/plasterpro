@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { HiOutlineAcademicCap } from "react-icons/hi2";
 import { FaGithub } from "react-icons/fa";
-import CEO from "../../../assets/ceo.jpg";
+import CEO from "../../../assets/ceiling4.jpg";
 import { Link } from "react-router-dom";
 
 const AboutInnovator = () => {
