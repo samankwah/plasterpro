@@ -12,6 +12,9 @@ import Error from "./components/Error";
 import ProductCatalog from "./pages/home/sections/ProductCatalog";
 import AboutInstallation from "./components/AboutInstallation";
 import MeetingRequest from "./components/MeetingRequest ";
+import ProductCard from "./components/ProductCard";
+import ProjectsPage from "./components/ProjectsPage";
+import { BlogList, BlogPost } from "./pages/home/sections/BlogPage";
 
 const App = () => {
   return (
@@ -22,12 +25,15 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<AboutProduct />} />
-        <Route path="/about-innovator" element={<AboutInnovator />} />
+        <Route path="/about-us" element={<AboutInnovator />} />
         <Route path="/products" element={<Showcase />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/installation" element={<AboutInstallation />} />
         <Route path="/product-catalog" element={<ProductCatalog />} />
+        <Route path="/product-card" element={<ProductCard />} />
         <Route path="/request-meeting" element={<MeetingRequest />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/blogpage" element={<BlogList />} />
         <Route path="*" element={<Error />} />
       </Routes>
 

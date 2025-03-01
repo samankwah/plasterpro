@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-gray-300">
+    <footer className="bg-[#09122C] text-gray-300">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
@@ -11,8 +11,8 @@ const Footer = () => {
               PlasterPro Ghana
             </h3>
             <p className="mb-4 text-sm">
-              Providing expert POP ceiling designs, lighting installations, and
-              home improvement solutions** with precision and excellence.
+              Welcome to PlasterPro Ghana – Your Trusted Ceiling, & Wall
+              Finishing Experts
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white">
@@ -70,7 +70,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/about-innovator" className="hover:text-white">
+                <Link to="/about-us" className="hover:text-white">
                   About
                 </Link>
               </li>
@@ -83,6 +83,11 @@ const Footer = () => {
               <li>
                 <Link to="/services" className="hover:text-white">
                   Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/blogpage" className="hover:text-white">
+                  Blog
                 </Link>
               </li>
               <li>

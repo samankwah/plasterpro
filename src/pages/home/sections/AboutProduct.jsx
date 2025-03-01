@@ -1,314 +1,265 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import {
   Wrench,
-  Hammer,
-  Award,
+  ClipboardList,
+  RefreshCw,
+  Phone,
+  MessageCircle,
+  CalendarCheck,
+  ChevronRight,
+  BadgeCheck,
   Star,
-  Settings,
-  MapPin,
-  Clock,
-  ArrowRight,
 } from "lucide-react";
-import ServiceImage from "../../../assets/kit-user.webp";
-import PlasterProInstall from "../../../assets/popinstallation.mp4";
+import { CiLocationOn } from "react-icons/ci";
+import PropTypes from "prop-types";
 
-const AboutProduct = () => {
-  const navigate = useNavigate();
+// Counter component with animation
+const Counter = ({ target, suffix, label }) => {
+  const [count, setCount] = useState(0);
 
-  const handleClick = () => {
-    navigate("/installation");
+  useEffect(() => {
+    if (count < target) {
+      const increment = target / 60;
+      const timer = setInterval(() => {
+        setCount((prev) => {
+          const next = prev + increment;
+          return next >= target ? target : next;
+        });
+      }, 30);
+
+      return () => clearInterval(timer);
+    }
+  }, [count, target]);
+
+  const formatNumber = (num) => {
+    if (num >= 1000) return `${(num / 1000).toFixed(1)}k${suffix}`;
+    return `${Math.floor(num)}${suffix}`;
+  };
+  Counter.propTypes = {
+    target: PropTypes.number.isRequired,
+    suffix: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
   };
 
-  // Product features data
-  const features = [
+  return (
+    <motion.div
+      initial={{ scale: 0.9, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
+      viewport={{ once: true }}
+      className="space-y-2 p-6 bg-white/10 rounded-xl"
+    >
+      <div className="text-4xl font-bold">{formatNumber(count)}</div>
+      <div className="text-sm font-medium">{label}</div>
+    </motion.div>
+  );
+};
+
+const AboutProduct = () => {
+  const services = [
     {
-      icon: <Wrench className="w-6 h-6 text-amber-500" />,
-      title: "Quality Materials",
-      description:
-        "Premium POP ceilings, lighting fixtures, and hardware materials sourced from trusted manufacturers.",
-    },
-    {
-      icon: <Hammer className="w-6 h-6 text-amber-500" />,
+      icon: <Wrench className="w-8 h-8 text-blue-600" />,
       title: "Professional Installation",
-      description:
-        "Expert installation services by our trained team, ensuring perfect finishing every time.",
+      items: [
+        "POP Ceiling & Wall Installations",
+        "Plasterboard & Drywall Systems",
+        "Acoustic Ceiling Solutions",
+        "Decorative 3D Panels",
+        "Metallic Channel Systems",
+      ],
     },
     {
-      icon: <Settings className="w-6 h-6 text-amber-500" />,
-      title: "Maintenance Support",
-      description:
-        "Comprehensive after-service support and maintenance for all installed products.",
+      icon: <ClipboardList className="w-8 h-8 text-blue-600" />,
+      title: "Project Consultations",
+      items: [
+        "Material Selection",
+        "3D Design Planning",
+        "Site Inspection",
+        "Budget Planning",
+      ],
     },
     {
-      icon: <Star className="w-6 h-6 text-amber-500" />,
-      title: "Customer Satisfaction",
-      description:
-        "Dedicated to delivering exceptional service and ensuring complete customer satisfaction.",
+      icon: <RefreshCw className="w-8 h-8 text-blue-600" />,
+      title: "Maintenance Services",
+      items: [
+        "Ceiling Repairs",
+        "POP Restoration",
+        "Acoustic Upgrades",
+        "Preventive Plans",
+      ],
+    },
+  ];
+
+  const testimonials = [
+    {
+      text: "Exceptional service! The team transformed my living room with a stunning POP ceiling design.",
+      author: "Barbara Aboagye",
+      location: "Accra",
+    },
+    {
+      text: "Commercial drywall partition delivered beyond expectations. Professional and efficient!",
+      author: "Mabel",
+      location: "Adentan",
+    },
+    {
+      text: "Flawless acoustic installation - quieter and more elegant space. Great job!",
+      author: "Jacob N.A",
+      location: "Ashaley-Botwe",
     },
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-6">
-        {/* Section header */}
-        <div className="text-center mb-16 pt-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            PlasterPro Ghana Services
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Your one-stop solution for quality building hardware, POP ceilings,
-            and interior finishing materials.
-          </p>
-        </div>
+    <div className="bg-white">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-blue-50 to-gray-100 text-gray-950 py-20 px-4">
+        <div className="max-w-6xl mx-auto text-center">
+          <motion.h1
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            className="text-4xl md:text-5xl font-bold mb-6 leading-tight"
+          >
+            Premium Ceiling & Wall Solutions
+          </motion.h1>
 
-        {/* Main product showcase */}
-        <div className="flex flex-col lg:flex-row items-center gap-12 mb-20">
-          <div className="w-full lg:w-1/2">
-            <div className="relative">
-              <div className="absolute -z-10 inset-0 bg-amber-100 rounded-lg transform translate-x-4 translate-y-4"></div>
-              <video
-                src={PlasterProInstall}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="relative z-10 rounded-lg shadow-md w-full h-[70vh] object-cover"
-              ></video>
-            </div>
-          </div>
-          <div className="w-full lg:w-1/2">
-            <span className="text-amber-500 font-semibold text-sm tracking-wider uppercase">
-              Complete Solutions
-            </span>
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mt-2 mb-4">
-              Our Services
-            </h3>
-            <p className="text-gray-600 mb-6 text-justify">
-              PlasterPro Ghana provides comprehensive solutions for all your
-              interior finishing needs. From POP ceilings to room lighting and
-              hardware materials, we handle everything from supply to
-              installation, making your construction process seamless and
-              efficient.
-            </p>
-            <ul className="space-y-4">
-              {[
-                "High-quality POP ceilings and installation",
-                "Modern room lighting solutions",
-                "Durable tapping and drywall screws",
-                "Professional wall angle and galvanised profile installation",
-              ].map((item, index) => (
-                <li key={index} className="flex items-start gap-2">
-                  <div className="w-5 h-5 bg-amber-500 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
-                    <span className="text-white text-xs">{index + 1}</span>
-                  </div>
-                  <span className="text-gray-700">{item}</span>
-                </li>
-              ))}
-            </ul>
-            <button
-              className="mt-8 px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-md transition-colors duration-200 flex items-center gap-2"
-              onClick={handleClick}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-xl mb-8 max-w-2xl mx-auto"
+          >
+            Expert installation and maintenance services with precision
+            craftsmanship
+          </motion.p>
+
+          {/* <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="flex flex-col md:flex-row gap-4 justify-center"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              className="bg-white text-blue-900 hover:bg-blue-50 px-8 py-4 rounded-xl font-semibold flex items-center gap-3"
             >
-              Request Installation <ArrowRight size={16} />
-            </button>
-          </div>
-        </div>
+              <CalendarCheck className="w-6 h-6" />
+              Get Free Quote
+            </motion.button>
 
-        {/* Benefits section */}
-        <div className="mb-20">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-              Why Choose PlasterPro Ghana
-            </h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Experience the convenience and quality that sets us apart in the
-              construction industry.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-amber-500">
-              <h4 className="text-xl font-semibold text-gray-800 mb-3">
-                One-Stop Solution
-              </h4>
-              <p className="text-gray-600">
-                All your interior finishing materials and installation needs
-                under one roof.
-              </p>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              className="border-2 border-white hover:bg-white/10 px-8 py-4 rounded-xl font-semibold flex items-center gap-3"
+            >
+              <MessageCircle className="w-6 h-6" />
+              Book Consultation
+            </motion.button>
+          </motion.div> */}
+
+          <div className="mt-12 flex flex-wrap justify-center gap-6 text-sm">
+            <div className="flex items-center gap-2 bg-blue-400/10 p-3 rounded-lg">
+              <Phone className="w-5 h-5" />
+              <span>+233 249 718 356</span>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-amber-500">
-              <h4 className="text-xl font-semibold text-gray-800 mb-3">
-                Quality Products
-              </h4>
-              <p className="text-gray-600">
-                Premium materials sourced from reliable manufacturers ensuring
-                durability and satisfaction.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-amber-500">
-              <h4 className="text-xl font-semibold text-gray-800 mb-3">
-                Expert Installation
-              </h4>
-              <p className="text-gray-600">
-                Professional installation services by trained technicians with
-                years of experience.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-amber-500">
-              <h4 className="text-xl font-semibold text-gray-800 mb-3">
-                Time Efficiency
-              </h4>
-              <p className="text-gray-600">
-                Save time by avoiding multiple market visits and coordinating
-                with different vendors.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-amber-500">
-              <h4 className="text-xl font-semibold text-gray-800 mb-3">
-                Customer Support
-              </h4>
-              <p className="text-gray-600">
-                Dedicated support team available for consultation and
-                after-service assistance.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-amber-500">
-              <h4 className="text-xl font-semibold text-gray-800 mb-3">
-                Competitive Pricing
-              </h4>
-              <p className="text-gray-600">
-                Fair and transparent pricing with options for different budgets
-                and project scales.
-              </p>
+            <div className="flex items-center gap-2 bg-blue-400/10 p-3 rounded-lg">
+              <CiLocationOn className="w-5 h-5" />
+              <span>East Legon Hills, Accra</span>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Technical features */}
-        <div className="mb-20">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-              Our Product Range
-            </h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Comprehensive selection of quality building materials and hardware
-              solutions.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
-              >
-                <div className="mb-4">{feature.icon}</div>
-                <h4 className="text-xl font-semibold text-gray-800 mb-2">
-                  {feature.title}
-                </h4>
-                <p className="text-gray-600">{feature.description}</p>
+      {/* Services Section */}
+      <section className="py-20 px-4 max-w-7xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="text-3xl font-bold text-center mb-16 text-gray-900"
+        >
+          Our Professional Services
+        </motion.h2>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-3 gap-8"
+        >
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              className="bg-white p-8 rounded-2xl shadow-xl border border-blue-50 hover:border-blue-100 transition-all"
+            >
+              <div className="mb-6 flex items-center gap-4">
+                <div className="p-3 bg-blue-50 rounded-xl">{service.icon}</div>
+                <h3 className="text-xl font-bold text-blue-900">
+                  {service.title}
+                </h3>
               </div>
+              <ul className="space-y-4">
+                {service.items.map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="flex items-center gap-3 text-blue-800 group"
+                  >
+                    <ChevronRight className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                    <span className="group-hover:text-blue-900 transition-colors">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* USP Banner with Animated Counters */}
+      <div className="bg-blue-900 text-white py-12 px-4">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 text-center">
+          <Counter target={3} suffix="+" label="Years Experience" />
+          <Counter target={500} suffix="+" label="Projects Completed" />
+          <Counter target={98} suffix="%" label="Satisfaction Rate" />
+        </div>
+      </div>
+
+      {/* Testimonials Section */}
+      <section className="py-20 px-4 bg-blue-50">
+        <div className="max-w-7xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-3xl font-bold text-center mb-16 text-blue-900"
+          >
+            Client Testimonials
+          </motion.h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ scale: 0.95, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                className="bg-white p-8 rounded-2xl shadow-lg relative border border-blue-100"
+              >
+                <div className="absolute -top-6 left-6 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white">
+                  <Star className="w-6 h-6" />
+                </div>
+                <p className="text-blue-800 mb-6 text-lg leading-relaxed">
+                  "{testimonial.text}"
+                </p>
+                <div className="border-t pt-6">
+                  <h4 className="font-bold text-blue-900">
+                    {testimonial.author}
+                  </h4>
+                  <p className="text-blue-600 text-sm">
+                    {testimonial.location}
+                  </p>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
-
-        {/* Testimonial */}
-        <div className="mb-20 bg-white p-8 md:p-12 rounded-lg shadow-sm">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="text-amber-500 text-4xl mb-6">"</div>
-            <p className="text-xl md:text-2xl text-gray-700 italic mb-6">
-              PlasterPro Ghana transformed our construction process. Their
-              one-stop solution saved us countless hours of material sourcing,
-              and their installation team delivered exceptional quality. I
-              highly recommend their services to anyone looking for reliable
-              interior finishing solutions.
-            </p>
-            <div className="flex items-center justify-center">
-              <img
-                src={ServiceImage}
-                alt="Testimonial from client"
-                className="w-16 h-16 rounded-full mr-4"
-              />
-              <div className="text-left">
-                <p className="font-semibold text-gray-800">Samuel Addo</p>
-                <p className="text-gray-500 text-sm">Property Developer</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Availability and pricing */}
-        <div className="flex flex-col md:flex-row items-center bg-amber-50 rounded-lg overflow-hidden mb-20">
-          <div className="w-full md:w-2/3 p-8 md:p-12">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">
-              Service Coverage & Support
-            </h3>
-            <p className="text-gray-700 mb-6">
-              PlasterPro Ghana currently serves the Greater Accra Region with
-              plans for expansion. We provide comprehensive support including
-              consultation, installation, and after-service maintenance for all
-              our products.
-            </p>
-            <div className="flex flex-wrap gap-4 mb-4">
-              <div className="flex items-center gap-2">
-                <Clock className="w-5 h-5 text-amber-500" />
-                <span className="text-gray-700">Quick response time</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Settings className="w-5 h-5 text-amber-500" />
-                <span className="text-gray-700">Professional installation</span>
-              </div>
-            </div>
-            <button className="mt-4 px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-md transition-colors duration-200">
-              Check Service Availability
-            </button>
-          </div>
-          <div className="w-full md:w-1/3 bg-amber-100 p-8 md:p-12">
-            <div className="text-center">
-              <p className="text-lg font-medium text-gray-800 mb-2">
-                Free Consultation
-              </p>
-              <p className="text-4xl font-bold text-amber-600 mb-2">
-                Available Now
-              </p>
-              <p className="text-gray-600 mb-4">
-                Customized quotations for your project
-              </p>
-              <div className="flex justify-center">
-                <Award className="w-8 h-8 text-amber-500" />
-              </div>
-              <p className="text-sm text-gray-600 mt-2">
-                Trusted by leading construction companies
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div className="text-center">
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
-            Ready to Start Your Project?
-          </h3>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            Join our satisfied customers who have experienced the convenience
-            and quality of PlasterPro Ghana's services.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              to="/products"
-              className="px-8 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-md transition-colors duration-200"
-            >
-              Request a Quote
-            </Link>
-            <Link
-              to="/contact"
-              className="px-8 py-3 border border-gray-300 hover:border-amber-500 hover:text-amber-500 text-gray-700 font-medium rounded-md transition-colors duration-200"
-            >
-              Contact Us
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 
