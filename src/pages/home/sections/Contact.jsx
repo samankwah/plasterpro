@@ -176,17 +176,6 @@ function Contact() {
               <div className="bg-gray-300 rounded-lg h-64">
                 {/* Google Maps Integration */}
 
-                {/* <iframe
-                  className=" w-full h-full rounded-xl"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d44953.33969693637!2d-2.033969624990797!3d5.207347014973899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdd6fc9ef52d521%3A0xf0509e89dedf2939!2sEAGLES%20NEST%20INT.%20HOTEL!5e0!3m2!1sen!2sgh!4v1740673223308!5m2!1sen!2sgh"
-                  // width="600"
-                  // height="450"
-                  // style="border:0;"
-                  allowfullscreen=""
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                ></iframe> */}
-
                 <iframe
                   className="w-full h-full rounded-s-xl"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d541.5835636119347!2d-0.08196425565555408!3d5.709993766879441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf835f95c0f8f1%3A0x383f2bb951f8dc08!2sEast%20Legon%20Hills!5e0!3m2!1sen!2sgh!4v1740870208273!5m2!1sen!2sgh"

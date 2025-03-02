@@ -388,23 +388,23 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <ul className="hidden md:flex items-center space-x-1">
+          <ul className="hidden md:flex space-x-8">
             {navLinks.map((item) => (
               <li key={item.name}>
                 <Link
                   to={item.link}
-                  className={`px-4 py-2 rounded-md text-base font-medium transition-all duration-300 relative overflow-hidden group ${
+                  className={`transition-colors relative text-white text-base ${
                     isActive(item.link)
-                      ? "text-white font-bold"
-                      : "text-gray-200 hover:text-white"
+                      ? "font-semibold text-blue-600 after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-full after:h-1 after:bg-blue-400 after:rounded-full"
+                      : "hover:text-blue-600"
                   }`}
                 >
                   {item.name}
-                  <span
+                  {/* <span
                     className={`absolute bottom-0 left-0 w-full h-1 transform scale-x-0 transition-transform duration-300 bg-blue-400 group-hover:scale-x-100 ${
                       isActive(item.link) ? "scale-x-100" : ""
                     }`}
-                  ></span>
+                  ></span> */}
                 </Link>
               </li>
             ))}
