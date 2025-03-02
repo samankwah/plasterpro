@@ -633,7 +633,7 @@
 // export default AboutInnovator;
 
 import React from "react";
-import CEO from "../../../assets/ceo.jpg";
+// import CEO from "../../../assets/ceo.jpg";
 import { motion } from "framer-motion"; // Note: changed from react-motion to framer-motion
 import { Link } from "react-router-dom";
 
@@ -665,7 +665,7 @@ const AboutInnovator = () => {
         <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
           <div className="rounded-xl overflow-hidden shadow-2xl mb-10 lg:mb-0">
             <img
-              src={CEO}
+              // src={CEO}
               alt="PlasterPro Ghana Projects"
               className="w-full h-[400px] lg:h-full object-cover"
             />
@@ -882,7 +882,7 @@ const AboutInnovator = () => {
               <div className="col-span-2 lg:mb-0 mb-8">
                 <div className="rounded-xl overflow-hidden shadow-lg">
                   <img
-                    src={CEO}
+                    // src={CEO}
                     alt="Betty Baffour Awuah - CEO & Founder"
                     className="w-full h-full object-cover"
                   />
@@ -955,21 +955,21 @@ const AboutInnovator = () => {
               {
                 name: "Felix",
                 role: "Accountant",
-                image: { CEO },
+                // image: { CEO },
                 description:
                   "Manages financial operations, ensuring seamless transactions and transparent pricing.",
               },
               {
                 name: "Emmanuel",
                 role: "Logistics & Delivery Coordinator",
-                image: { CEO },
+                // image: { CEO },
                 description:
                   "Oversees timely delivery of materials and installation tools across Ghana.",
               },
               {
                 name: "Michael",
                 role: "Lead Installer",
-                image: { CEO },
+                // image: { CEO },
                 description:
                   "With years of experience in ceiling and wall installations, he ensures top-notch craftsmanship and efficiency on every project.",
               },
@@ -1028,7 +1028,7 @@ const AboutInnovator = () => {
               </div>
               <div className="hidden lg:block">
                 <img
-                  src={CEO}
+                  // src={CEO}
                   alt="Installation Team at Work"
                   className="w-full h-full object-cover"
                 />
