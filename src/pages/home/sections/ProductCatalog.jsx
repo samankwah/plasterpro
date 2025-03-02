@@ -227,7 +227,7 @@ const ProductCatalog = () => {
             className="w-full flex items-center justify-between p-4 bg-white rounded-lg shadow-sm border border-slate-100"
           >
             <div className="flex items-center">
-              <Filter className="h-5 w-5 mr-2 text-blue-600" />
+              <Filter className="h-5 w-5 mr-2 text-blue-500" />
               <span className="font-medium text-slate-800">
                 Filters & Search
               </span>
