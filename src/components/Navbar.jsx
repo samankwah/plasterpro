@@ -395,7 +395,7 @@ const Navbar = () => {
                   to={item.link}
                   className={`transition-colors relative text-white text-base ${
                     isActive(item.link)
-                      ? "font-semibold text-blue-600 after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-full after:h-1 after:bg-blue-400 after:rounded-full"
+                      ? "font-semibold text-blue-600 after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-full after:h-1 after:bg-white after:rounded-full"
                       : "hover:text-blue-600"
                   }`}
                 >
