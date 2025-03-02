@@ -383,7 +383,7 @@ const Navbar = () => {
             <img
               src={LogoWhite}
               alt="PlasterPro Logo"
-              className="h-10 transform hover:scale-105 transition-transform duration-300"
+              className="h-11 transform hover:scale-105 transition-transform duration-300"
             />
           </Link>
 

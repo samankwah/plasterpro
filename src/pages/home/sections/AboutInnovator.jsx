@@ -673,7 +673,7 @@ const AboutInnovator = () => {
           <div>
             <h2 className="text-3xl font-bold text-gray-900 mb-6 relative">
               <span className="relative z-10">Our Journey</span>
-              <span className="absolute bottom-0 left-0 h-1 w-24 bg-blue-400"></span>
+              {/* <span className="absolute bottom-0 left-0 h-1 w-24 bg-blue-400"></span> */}
             </h2>
             <p className="text-lg text-gray-700 mb-4 leading-relaxed">
               Established in{" "}
@@ -802,7 +802,7 @@ const AboutInnovator = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-2 relative inline-block">
               Our Core Values
-              <span className="absolute bottom-0 left-0 h-1 w-24 bg-blue-400 rounded-full"></span>
+              {/* <span className="absolute bottom-0 left-0 h-1 w-24 bg-blue-400 rounded-full"></span> */}
             </h2>
             <p className="text-xl text-gray-600">What drives us every day</p>
           </div>
@@ -869,7 +869,7 @@ const AboutInnovator = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-2 relative inline-block">
               Meet Our Team
-              <span className="absolute bottom-0 left-0 h-1 w-24 bg-blue-400 rounded-full"></span>
+              {/* <span className="absolute bottom-0 left-0 h-1 w-24 bg-blue-400 rounded-full"></span> */}
             </h2>
             <p className="text-xl text-gray-600">
               The experts behind our success
