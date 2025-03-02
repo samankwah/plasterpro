@@ -164,7 +164,7 @@ const Footer = () => {
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                 </svg>
-                <span>123 Madina Street, Accra, Ghana</span>
+                <span>East Legon Hills, Accra</span>
               </li>
               <li className="flex items-start">
                 <svg
@@ -181,7 +181,7 @@ const Footer = () => {
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
-                <span>info@plasterprogh.com</span>
+                <span>plasterproent@gmail.com</span>
               </li>
               <li className="flex items-start">
                 <svg
