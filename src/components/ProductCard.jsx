@@ -59,7 +59,7 @@ const ProductCard = ({ product }) => {
                 <h2 className="text-xl font-semibold">{product.name}</h2>
                 <p className="text-gray-600 mt-2">{product.description}</p>
                 <p className="text-amber-600 font-bold mt-2">
-                  ${product.price}
+                  {/* ${product.price} */}
                 </p>
 
                 {/* View Full Product Button */}

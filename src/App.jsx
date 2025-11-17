@@ -15,6 +15,7 @@ import MeetingRequest from "./components/MeetingRequest ";
 import ProductCard from "./components/ProductCard";
 import ProjectsPage from "./components/ProjectsPage";
 import { BlogList, BlogPost } from "./pages/home/sections/BlogPage";
+import ProjectDetailsPage from "./pages/ProjectDetailsPage";
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
         <Route path="/request-meeting" element={<MeetingRequest />} />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/blogpage" element={<BlogList />} />
+        <Route path="/projects/:projectId" element={<ProjectDetailsPage />} />
         <Route path="*" element={<Error />} />
       </Routes>
 
